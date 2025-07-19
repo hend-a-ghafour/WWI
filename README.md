@@ -1,1 +1,1 @@
-# WWI
+# Wide World Importers (WWI)
