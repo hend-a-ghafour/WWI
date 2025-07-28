@@ -20,10 +20,10 @@ INSERT INTO Locations
 			LEFT JOIN WideWorldImporters.Application.StateProvinces S
 				ON C.StateProvinceID=S.StateProvinceID
 			LEFT JOIN WideWorldImporters.Application.Countries CO
-				ON S.CountryID=CO.CountryID
+				ON S.CountryID=CO.CountryID;
 
 SELECT	*
-FROM	Locations
+FROM	Locations;
 
 
 -- 2- Inserting values into Employee Table
@@ -38,10 +38,10 @@ INSERT INTO Employees
 	FROM	
 		WideWorldImporters.Application.People
 	WHERE	
-		IsEmployee = 1
+		IsEmployee = 1;
 
 SELECT	*
-FROM	Employees
+FROM	Employees;
 
 -- 3- Inserting values into Customers Table
 INSERT INTO Customers
@@ -60,10 +60,10 @@ INSERT INTO Customers
 			LEFT JOIN WideWorldImporters.Sales.CustomerCategories CC
 				ON	C.CustomerCategoryID=CC.CustomerCategoryID
 			LEFT JOIN WideWorldImporters.Sales.BuyingGroups BG
-				ON	C.BuyingGroupID=BG.BuyingGroupID
+				ON	C.BuyingGroupID=BG.BuyingGroupID;
 
 SELECT	*
-FROM	Customers
+FROM	Customers;
 
 -- 4- Inserting values into Delivery_Methods Table
 INSERT INTO Delivery_Methods
@@ -71,10 +71,10 @@ INSERT INTO Delivery_Methods
 		DeliveryMethodID,
 		DeliveryMethodName
 	FROM	
-		WideWorldImporters.Application.DeliveryMethods
+		WideWorldImporters.Application.DeliveryMethods;
 
 SELECT	* 
-FROM	Delivery_Methods
+FROM	Delivery_Methods;
 
 -- 5- Inserting values into Transaction_Types Table
 INSERT INTO Transaction_Types
@@ -82,10 +82,10 @@ INSERT INTO Transaction_Types
 		TransactionTypeID,
 		TransactionTypeName
 	FROM	
-		WideWorldImporters.Application.TransactionTypes
+		WideWorldImporters.Application.TransactionTypes;
 
 SELECT	*
-FROM	Transaction_Types
+FROM	Transaction_Types;
 
 -- 6- Inserting values into Payment_Methods Table
 INSERT INTO Payment_Methods
@@ -93,10 +93,10 @@ INSERT INTO Payment_Methods
 		PaymentMethodID,
 		PaymentMethodName
 	FROM
-		WideWorldImporters.Application.PaymentMethods
+		WideWorldImporters.Application.PaymentMethods;
 
 SELECT	*
-FROM	Payment_Methods
+FROM	Payment_Methods;
 
 
 -- 7- Inserting values into Suppliers Table
@@ -108,10 +108,10 @@ INSERT INTO Suppliers
 	FROM
 		WideWorldImporters.Purchasing.Suppliers S
 			LEFT JOIN WideWorldImporters.Purchasing.SupplierCategories SC 
-				ON S.SupplierCategoryID=SC.SupplierCategoryID
+				ON S.SupplierCategoryID=SC.SupplierCategoryID;
 
 SELECT	*
-FROM	Suppliers
+FROM	Suppliers;
 
 -- 8- Inserting values into Products Table
 INSERT INTO Products
@@ -139,9 +139,9 @@ INSERT INTO Products
 			LEFT JOIN WideWorldImporters.Warehouse.StockGroups G 
 				ON SG.StockGroupID=G.StockGroupID
 			LEFT JOIN WideWorldImporters.Warehouse.Colors c 
-				ON SI.ColorID=C.ColorID
+				ON SI.ColorID=C.ColorID;
 SELECT	*
-FROM	Products
+FROM	Products;
 
 
 -- 9- Inserting into Sales_Orders Table
@@ -160,10 +160,10 @@ INSERT INTO Sales_Orders
 	FROM 
 		WideWorldImporters.Sales.Orders O
 			LEFT JOIN WideWorldImporters.Sales.Invoices I
-				ON O.OrderID = I.OrderID
+				ON O.OrderID = I.OrderID;
 
 SELECT	*
-FROM	Sales_Orders
+FROM	Sales_Orders;
 
 -- 10- Inserting into Sales_Invoices Table
 INSERT INTO Sales_Invoices 
@@ -185,10 +185,10 @@ INSERT INTO Sales_Invoices
 		 LEFT JOIN WideWorldImporters.Sales.Invoices I
 			ON CT.InvoiceID=I.InvoiceID
 	WHERE
-		CT.InvoiceID IS NOT NULL
+		CT.InvoiceID IS NOT NULL;
 
 SELECT	*
-FROM	Sales_Invoices
+FROM	Sales_Invoices;
 
 -- 11- Inserting values into Returned_Sales Table
 INSERT INTO Returned_Sales 
@@ -204,10 +204,10 @@ INSERT INTO Returned_Sales
 	FROM 
 		WideWorldImporters.Sales.CustomerTransactions
 	WHERE 
-		InvoiceID IS NULL
+		InvoiceID IS NULL;
 
 SELECT	*
-FROM	Returned_Sales
+FROM	Returned_Sales;
 
 -- 12- Inserting values into Sales_Details
 INSERT INTO Sales_Details
@@ -228,10 +228,10 @@ INSERT INTO Sales_Details
 			LEFT JOIN WideWorldImporters.Sales.Invoices I
 				ON IL.InvoiceID=I.InvoiceID
 			LEFT JOIN WideWorldImporters.Sales.OrderLines OL
-				ON I.OrderID=OL.OrderID
+				ON I.OrderID=OL.OrderID;
 
 SELECT	*
-FROM	Sales_Details
+FROM	Sales_Details;
 
 -- 13- Inserting values into Purchase_Orders Table
 INSERT INTO Purchase_Orders
@@ -243,10 +243,10 @@ INSERT INTO Purchase_Orders
 		SupplierID,
 		DeliveryMethodID
 	FROM
-		WideWorldImporters.Purchasing.PurchaseOrders 
+		WideWorldImporters.Purchasing.PurchaseOrders;
 
 SELECT	*
-FROM	Purchase_Orders
+FROM	Purchase_Orders;
 
 -- 14- Inserting Values into Purchase_Transactions Table
 INSERT INTO Purchase_Transactions 
@@ -266,10 +266,10 @@ INSERT INTO Purchase_Transactions
 	FROM
 		WideWorldImporters.Purchasing.SupplierTransactions
 	WHERE 
-		PurchaseOrderID IS NOT NULL
+		PurchaseOrderID IS NOT NULL;
 
 SELECT	*
-FROM	Purchase_Transactions
+FROM	Purchase_Transactions;
 
 -- 15- Inserting values into Returned Purchases
 INSERT INTO Returned_Purchases
@@ -285,10 +285,10 @@ INSERT INTO Returned_Purchases
 	FROM
 		WideWorldImporters.Purchasing.SupplierTransactions
 	WHERE 
-		PurchaseOrderID IS  NULL
+		PurchaseOrderID IS  NULL;
 
 SELECT	*
-FROM	Returned_Purchases
+FROM	Returned_Purchases;
 
 -- 16- Inserting Values into Purchase_Details
 INSERT INTO Purchase_Details
@@ -301,7 +301,7 @@ INSERT INTO Purchase_Details
 		ExpectedUnitPricePerOuter,
 		LastReceiptDate
 	FROM 
-		WideWorldImporters.Purchasing.PurchaseOrderLines
+		WideWorldImporters.Purchasing.PurchaseOrderLines;
 
 SELECT	*
-FROM	Purchase_Details
+FROM	Purchase_Details;
