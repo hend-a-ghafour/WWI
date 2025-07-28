@@ -1,4 +1,4 @@
-USE	WWI
+USE	WWI;
 
 -- Dataset Overview
 -- 1- Customers
