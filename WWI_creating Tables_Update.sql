@@ -1,11 +1,11 @@
 -- Creating WWI Database
 
-CREATE DATABASE WWI
+CREATE DATABASE WWI;
 
 
 -- Creating Tables For WWI Database
 
-USE WWI
+USE WWI;
 
 -- 1- Locations Table
 CREATE TABLE Locations (
@@ -20,14 +20,14 @@ CREATE TABLE Locations (
 	SubRegion NVARCHAR(30) NOT NULL,
 	City_Latest_Pop BIGINT,
 	State_Latest_Pop BIGINT,
-	Ctry_Latest_Pop BIGINT)
+	Ctry_Latest_Pop BIGINT);
 
 
 -- 2- Employees Table
 CREATE TABLE Employees (
 	Emp_ID INT PRIMARY KEY,
 	Full_Name NVARCHAR(50) NOT NULL,
-	Position NVARCHAR(20) NOT NULL)
+	Position NVARCHAR(20) NOT NULL);
 
 -- 3- Customers Table
 CREATE TABLE Customers (
@@ -39,29 +39,29 @@ CREATE TABLE Customers (
 	Buying_Group NVARCHAR(50) ,	
 	Paying_Customer  INT NOT NULL FOREIGN KEY REFERENCES Customers(C_ID),
 	Credit_Limit DECIMAL (18,10),
-	Payment_Days INT NOT NULL)
+	Payment_Days INT NOT NULL);
 
 
 -- 4- Delivery_Methods Table
 CREATE TABLE Delivery_Methods (
 	DM_ID INT PRIMARY KEY,
-	Method_Name NVARCHAR(50) NOT NULL)
+	Method_Name NVARCHAR(50) NOT NULL);
 
 -- 5- Transaction_Types Table
 CREATE TABLE Transaction_Types (
 	Trans_ID INT PRIMARY KEY,
-	Trans_Name NVARCHAR(50) NOT NULL)
+	Trans_Name NVARCHAR(50) NOT NULL);
 
 -- 6- Payment_Methods Table
 CREATE TABLE Payment_Methods (
 	Payment_ID INT PRIMARY KEY,
-	Method NVARCHAR(50) NOT NULL)
+	Method NVARCHAR(50) NOT NULL);
 
 -- 7- Suppliers Table
 CREATE TABLE Suppliers (
 	Supp_ID INT PRIMARY KEY,
 	Supplier NVARCHAR(100) NOT NULL,
-	Supplier_Category NVARCHAR(50) NOT NULL)
+	Supplier_Category NVARCHAR(50) NOT NULL);
 
 -- 8- Products Table
 CREATE TABLE Products (
@@ -78,7 +78,7 @@ CREATE TABLE Products (
 	WholeSale_Price DECIMAL(18,2) NOT NULL,
 	Retail_Price DECIMAL(18,2) NOT NULL,
 	Tax_Rate DECIMAL(18,2) NOT NULL,
-	Lead_Time INT NOT NULL) 
+	Lead_Time INT NOT NULL) ;
 
 -- 9- Sales_Orders Table
 CREATE TABLE Sales_Orders (
@@ -91,7 +91,7 @@ CREATE TABLE Sales_Orders (
 	Picking_Date DATE,
 	Expected_Delivery_Date DATE NOT NULL,
 	Delivery_Date DATE, 
-	DM_ID  INT FOREIGN KEY REFERENCES Delivery_Methods(DM_ID))
+	DM_ID  INT FOREIGN KEY REFERENCES Delivery_Methods(DM_ID));
 
 -- 10- Sales_Invoices Table
 CREATE TABLE Sales_Invoices (
@@ -106,7 +106,7 @@ CREATE TABLE Sales_Invoices (
 	Is_Finalized BIT NOT NULL,
 	Finalization_Date DATE,
 	Payment_ID  INT FOREIGN KEY REFERENCES Payment_Methods(Payment_ID),
-	Trans_ID  INT NOT NULL FOREIGN KEY REFERENCES Transaction_Types(Trans_ID))
+	Trans_ID  INT NOT NULL FOREIGN KEY REFERENCES Transaction_Types(Trans_ID));
 
 -- 11- Returned_Sales Table
 CREATE TABLE Returned_Sales (
@@ -117,7 +117,7 @@ CREATE TABLE Returned_Sales (
 	Is_Finalized BIT NOT NULL,
 	Finalization_Date DATE,
 	Payment_ID  INT FOREIGN KEY REFERENCES Payment_Methods(Payment_ID),
-	Trans_ID  INT NOT NULL FOREIGN KEY REFERENCES Transaction_Types(Trans_ID))
+	Trans_ID  INT NOT NULL FOREIGN KEY REFERENCES Transaction_Types(Trans_ID));
 
 -- 12- Sales_Details Table
 CREATE TABLE Sales_Details (
@@ -131,7 +131,7 @@ CREATE TABLE Sales_Details (
 	Tax_Rate DECIMAL(18,2) NOT NULL,
 	Tax_Amount DECIMAL(18,2) NOT NULL,
 	Extended_Price DECIMAL(18,2) NOT NULL,
-	Line_Profit DECIMAL(18,2) NOT NULL)
+	Line_Profit DECIMAL(18,2) NOT NULL);
 	
 -- 13- Purchase_Orders Table
 CREATE TABLE Purchase_Orders (
@@ -140,7 +140,7 @@ CREATE TABLE Purchase_Orders (
 	Expected_Delivery_Date DATE, 
 	Purchasing_Officer  INT NOT NULL FOREIGN KEY REFERENCES Employees(Emp_ID),
 	Supp_ID  INT NOT NULL FOREIGN KEY REFERENCES Suppliers(Supp_ID),
-	DM_ID  INT NOT NULL FOREIGN KEY REFERENCES Delivery_Methods(DM_ID))
+	DM_ID  INT NOT NULL FOREIGN KEY REFERENCES Delivery_Methods(DM_ID));
 	
 
 -- 14- Purchase_Transactions Table
@@ -156,7 +156,7 @@ CREATE TABLE Purchase_Transactions (
 	Is_Finalized BIT NOT NULL,
 	Finalization_Date DATE,
 	Payment_ID  INT NOT NULL FOREIGN KEY REFERENCES Payment_Methods(Payment_ID),
-	Trans_ID  INT NOT NULL FOREIGN KEY REFERENCES Transaction_Types(Trans_ID))
+	Trans_ID  INT NOT NULL FOREIGN KEY REFERENCES Transaction_Types(Trans_ID));
 
 -- 15- Returned_Purchases Table
 CREATE TABLE Returned_Purchases (
@@ -167,7 +167,7 @@ CREATE TABLE Returned_Purchases (
 	Is_Finalized BIT NOT NULL,
 	Finalization_Date DATE,
 	Payment_ID  INT FOREIGN KEY REFERENCES Payment_Methods(Payment_ID),
-	Trans_ID  INT NOT NULL FOREIGN KEY REFERENCES Transaction_Types(Trans_ID))
+	Trans_ID  INT NOT NULL FOREIGN KEY REFERENCES Transaction_Types(Trans_ID));
 	
 -- 16- Purchase_Details Table
 CREATE TABLE Purchase_Details (
@@ -177,5 +177,5 @@ CREATE TABLE Purchase_Details (
 	Ordered_Quantity INT NOT NULL,
 	Recieved_Quantity INT NOT NULL,
 	Purchasing_Price DECIMAL(18,2) NOT NULL,
-	Last_Receipt_Date DATE)	
+	Last_Receipt_Date DATE)	;
 
