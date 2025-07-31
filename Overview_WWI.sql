@@ -122,7 +122,7 @@ ORDER BY
 SELECT	
 	*
 FROM
-	Products
+	Products;
 	
 	
 SELECT
@@ -145,7 +145,7 @@ SELECT
 	CAST(ROUND(AVG(Retail_Price),2)AS DECIMAL(10,2)) AS Average_Retail_Price,
 	ROUND(AVG(Lead_Time),2) AS Average_Lead_Time
 FROM
-	Products
+	Products;
 
 
 SELECT
@@ -161,7 +161,7 @@ SELECT
 FROM
 	Products
 GROUP BY
-	Product_Category
+	Product_Category;
 
 
 SELECT
@@ -175,4 +175,4 @@ SELECT
 		ELSE 'Restock'
 	END AS Stock_Status
 FROM 
-	Products
+	Products;
