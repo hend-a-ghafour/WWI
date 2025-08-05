@@ -11,4 +11,4 @@
 1. Created an updated version of the tables
 2. Inserting values into those tables
 3. Runing an Overview
-4. Create The Necessary Views
+4. Create The Necessary Views (arrange fields to become consisted of a star schema)
