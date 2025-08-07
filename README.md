@@ -12,3 +12,5 @@
 2. Inserting values into those tables
 3. Runing an Overview
 4. Create The Necessary Views (arrange fields to become consisted of a star schema)
+5. Transfering data into Power BI
+
